@@ -20,7 +20,7 @@ const Commento = ({
     <div id={CONTAINER_ID} />
     <script
       src={COMMENTO_URL}
-      async={true}
+      defer
       data-css-override={cssOverride}
       data-auto-init={autoInit}
       data-no-fonts={noFonts}
