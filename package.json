@@ -1,19 +1,30 @@
 {
   "name": "react-commento",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.0.1",
+  "description": "React component for commento comments",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "build": "rm -rf lib && tsc -p .",
-    "prepublish": "npm run build"
+    "release": "np",
+    "prepare": "npm run build"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "comments",
+    "commento",
+    "react"
+  ],
+  "author": "tgandrews",
+  "repository": "tgandrews/react-commento",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.13.0"
+  },
   "devDependencies": {
     "@types/react": "^16.9.23",
     "husky": "^4.2.3",
     "lint-staged": "^10.0.8",
+    "np": "^6.2.0",
     "prettier": "^1.19.1",
     "typescript": "^3.8.2"
   },
@@ -26,8 +37,5 @@
     "*": [
       "prettier --write"
     ]
-  },
-  "dependencies": {
-    "react": "^16.13.0"
   }
 }
