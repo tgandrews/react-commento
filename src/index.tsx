@@ -4,13 +4,29 @@ const CONTAINER_ID = "commento";
 const SCRIPT_ID = "commento-script";
 const COMMENTO_URL = "https://cdn.commento.io/js/commento.js";
 
-const insertScript = (src: string, id: string, parentElement: HTMLElement) => {
+interface DataAttributes {
+  [key: string]: string | boolean | undefined;
+}
+
+const insertScript = (
+  src: string,
+  id: string,
+  parentElement: HTMLElement,
+  dataAttributes: DataAttributes
+) => {
   const script = window.document.createElement("script");
   script.async = true;
   script.src = src;
   script.id = id;
+
+  Object.entries(dataAttributes).forEach(([key, value]) => {
+    if (!value) {
+      return;
+    }
+    script.setAttribute(`data-${key}`, value.toString());
+  });
+
   parentElement.appendChild(script);
-  return script;
 };
 
 const removeScript = (id: string, parentElement: HTMLElement) => {
@@ -41,7 +57,13 @@ const Commento = ({
     }
     const document = window.document;
     if (document.getElementById("commento")) {
-      insertScript(COMMENTO_URL, SCRIPT_ID, document.body);
+      insertScript(COMMENTO_URL, SCRIPT_ID, document.body, {
+        "css-override": cssOverride,
+        "auto-init": autoInit,
+        "no-fonts": noFonts,
+        "hide-deleted": hideDeleted,
+        "page-id": pageId
+      });
     }
     return () => removeScript(SCRIPT_ID, document.body);
   }, [id]);
