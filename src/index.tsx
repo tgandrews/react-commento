@@ -20,7 +20,7 @@ const insertScript = (
   script.id = id;
 
   Object.entries(dataAttributes).forEach(([key, value]) => {
-    if (!value) {
+    if (value === undefined) {
       return;
     }
     script.setAttribute(`data-${key}`, value.toString());
