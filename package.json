@@ -1,6 +1,6 @@
 {
   "name": "react-commento",
-  "version": "1.0.0-0",
+  "version": "1.0.0-1",
   "description": "React component for commento comments",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
