@@ -68,6 +68,6 @@ const Commento = ({
     return () => removeScript(SCRIPT_ID, document.body);
   }, [id]);
 
-  return <div id={CONTAINER_ID} />;
+  return <div key={id} id={CONTAINER_ID} />;
 };
 export default Commento;
