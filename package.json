@@ -7,7 +7,8 @@
   "scripts": {
     "build": "rm -rf lib && tsc -p .",
     "release": "np",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "test": "echo 'test'"
   },
   "keywords": [
     "comments",
